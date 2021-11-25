@@ -1,6 +1,6 @@
 #### flask-application
 
-In this application developed by python flask frameworks.
+In this application developed by python flask framework.
 
 Application development Requirements
 
