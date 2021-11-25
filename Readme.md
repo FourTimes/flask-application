@@ -16,8 +16,6 @@ development folder structure is
 ```bash
 
 flask-application
-|-- Dockerfile
-|-- Readme.md
 |-- app.py
 |-- requirments.txt
 |-- static
@@ -26,7 +24,23 @@ flask-application
 |-- templates
     |-- base.html
     |-- index.html
+|-- Dockerfile
+|-- Readme.md
 ```
+
+Explaination of directory structure
+
+    1. app.py
+
+    2. requirements.txt
+
+    3. static
+
+    4. templates
+
+    5. Dockerfile
+
+    6. Readme.md
 
 
 
