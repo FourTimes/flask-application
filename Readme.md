@@ -72,6 +72,50 @@ h1 {
 
 4. templates
 
+```html
+# base.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>quotes</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('index')}}">QUOTES</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>
+```
+
+```html
+# index.html
+{% extends 'base.html' %}
+    {% block content %}
+            {% block title %}
+            <pre>
+                <div style="background-color: #f8f9fa!important;">
+                    {
+                            "icon_url" : "<span id="response_icon_url">{{quotes.icon_url}}</span>",
+                            "id" : "<span id="response_id">{{quotes.id}}</span>",
+                            "url" : "<a id="response_url">{{quotes.url}}</a>",
+                            "value" : "<span id="response_text">{{quotes.value}}</span>"
+                            "created_at" : "<span id="response_text">{{quotes.created_at}}</span>"
+                            "updated_at" : "<span id="response_text">{{quotes.updated_at}}</span>"
+                    }
+                </div>
+            </pre>
+        {% endblock %}
+{% endblock %}
+```
 
 
 5. Dockerfile
