@@ -28,24 +28,26 @@ flask-application
 |-- Readme.md
 ```
 
-Explaination of directory structure
-
+Flask
+```bash
+It makes the process of designing a web application simpler. 
+Flask lets us focus on what the users are requesting and what sort of response to give back.
+```
 1. app.py
 
+app.py contains the application’s code, where you create the app and its views.
+
 ```python
+
 # entrypoint of the application
 from flask import Flask, render_template
 import requests
-
 app = Flask(__name__)
-
 api="https://api.chucknorris.io/jokes/random"
-
 @app.route('/')
 def index():
     response = requests.get(api)
     return render_template ("index.html", quotes=response.json())
-
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
 
@@ -53,13 +55,17 @@ if __name__ == '__main__':
 2. requirements.txt
 
 ```bash
+
 flask
 requests
+
 ```
 
 
 3. static
+
 ```css
+
 # static/css/style.css
 h1 {
     border: 2px #eee solid;
@@ -67,12 +73,14 @@ h1 {
     text-align: center;
     padding: 10px;
 }
+
 ```
 
 
 4. templates
 
 ```html
+
 # base.html
 <!doctype html>
 <html lang="en">
@@ -94,6 +102,7 @@ h1 {
     </div>
   </body>
 </html>
+
 ```
 
 ```html
