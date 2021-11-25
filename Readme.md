@@ -52,6 +52,10 @@ if __name__ == '__main__':
 ```
 2. requirements.txt
 
+```bash
+flask
+requests
+```
     3. static
 
     4. templates
