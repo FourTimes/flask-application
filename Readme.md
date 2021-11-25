@@ -56,11 +56,25 @@ if __name__ == '__main__':
 flask
 requests
 ```
-    3. static
 
-    4. templates
 
-    5. Dockerfile
+3. static
+```css
+# static/css/style.css
+h1 {
+    border: 2px #eee solid;
+    color: brown;
+    text-align: center;
+    padding: 10px;
+}
+```
+
+
+4. templates
+
+
+
+5. Dockerfile
 ```Dockerfile
 # referece image from alpine family
 FROM alpine
