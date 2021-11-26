@@ -5,13 +5,6 @@ jobs:
   dev:
     name: dev recommendation
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        folder: ['models/recommendation']
-    defaults:
-      run:
-        shell: bash
-        working-directory: ${{ matrix.folder }}
     steps:
       - name: checkout
         uses: actions/checkout@v1
@@ -25,3 +18,9 @@ jobs:
       - name: docker build 
         run: |
           docker build -t  ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID .
+      - name: docker push 
+        run: |
+          docker push ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
+      - name: docker logout
+        run: |
+          docker logout
