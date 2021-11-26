@@ -19,7 +19,7 @@ module "server" {
   subnet_id            = module.vpc.subnet_id
   vpc_id               = module.vpc.vpc_id
   security_group_name  = "flask-app-server-security-group"
-  user_data            = locals.user_data
+  user_data            = local.user_data
   additional_tags = {
     "Application" = "flaskapp"
     "Name"        = "Flask-app-server"
