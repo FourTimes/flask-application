@@ -24,4 +24,4 @@ jobs:
           echo ${{ secrets.DOCKER_TOKEN }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
       - name: docker build 
         run: |
-          docker build -t  ${{ secrets.DOCKER_USER }}/flaskapi:${{ GITHUB_RUN_ID }} .
+          docker build -t  ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID .
