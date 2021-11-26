@@ -1,9 +1,9 @@
 ---
-name: flask api build and deployment
+name: flask app build and deployment
 on: [push]
 jobs:
   dev:
-    name: flask api deployment
+    name: Flask app deployment
     runs-on: ubuntu-latest
     steps:
       - name: checkout
