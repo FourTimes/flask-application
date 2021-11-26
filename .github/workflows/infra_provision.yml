@@ -32,16 +32,18 @@ jobs:
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.SECRET_KEY }}
           aws-region: us-east-1
-      - name: terraform initial
+      - name: initial
         run: |
           terraform init \
             -backend-config="bucket=${{ env.bucket }}" \
             -backend-config="key=dev/tfstate.tfstate" \
             -backend-config="region=eu-central-1" \
             -backend=true
-      - name: terraform plan
+      - name: validate
+        run: terraform validate
+      - name: plan
         run: terraform  plan -var-file=config.tfvars
-      - name: terraform apply
+      - name: apply
         run: terraform  apply -var-file=config.tfvars -auto-approve
-      - name: terraform destroy
-        run: terraform  destroy -var-file=config.tfvars -auto-approve
+      # - name: terraform destroy
+      #   run: terraform  destroy -var-file=config.tfvars -auto-approve
