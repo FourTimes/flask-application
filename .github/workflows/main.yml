@@ -20,8 +20,7 @@ jobs:
           docker build -t  ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID .
       - name: show the docker image name
         run: |
-           image=`${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID`
-           echo $image
+          echo ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
       - name: docker push 
         run: |
           docker push ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
