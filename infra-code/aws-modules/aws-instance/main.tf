@@ -1,6 +1,6 @@
 resource "aws_instance" "tf" {
   ami                         = var.ami
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   availability_zone           = var.availability_zone
   instance_type               = var.instance_type
   key_name                    = var.key_name
