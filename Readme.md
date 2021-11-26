@@ -167,7 +167,44 @@ CMD ["python3", "app.py"]
 ```
     6. Readme.md
 
+CICD preparation steps
 
+`dependencies`
+    
+    1. docker username
+    2. docker password/token
+    
+```yml
+---
+name: flask app build and deployment
+on: [push]
+jobs:
+  dev:
+    name: Flask app deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: docker login
+        run: |
+          echo ${{ secrets.DOCKER_TOKEN }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
+      - name: docker build 
+        run: |
+          docker build -t  ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID .
+      - name: show the docker image name
+        run: |
+          echo ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
+      - name: docker push 
+        run: |
+          docker push ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
+      - name: docker logout
+        run: |
+          docker logout
+```
 
 
 
