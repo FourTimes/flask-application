@@ -1,5 +1,5 @@
 module "vpc" {
-  source            = "../aws-modules/aws-vpc"
+  source            = "./aws-modules/aws-vpc"
   vpc_id            = "10.0.0.0/16"
   subnet_cidr       = "10.0.0.0/24"
   availability_zone = "${var.region}b"
@@ -11,8 +11,8 @@ module "vpc" {
 }
 
 module "server" {
-  source               = "../aws-modules/aws-instance"
-  ami                  = "ami-06acd7cbe65da0fde"
+  source               = "./aws-modules/aws-instance"
+  ami                  = "ami-083654bd07b5da81d"
   availability_zone    = "${var.region}b"
   instance_type        = "c4.xlarge"
   key_name             = "karthi"
