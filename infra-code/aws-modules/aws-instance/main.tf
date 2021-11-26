@@ -7,6 +7,7 @@ resource "aws_instance" "tf" {
   monitoring                  = false
   subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [aws_security_group.tf.id]
+  user_data                   = var.user_data
   root_block_device {
     delete_on_termination = true
     encrypted             = true

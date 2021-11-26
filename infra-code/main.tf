@@ -1,22 +1,25 @@
 module "vpc" {
-  source            = "../module/aws-subnets"
-  vpc_id            = data.aws_vpc.vpc_id.id
-  availability_zone = "ap-southeast-1b"
-  subnet_cidr_block = "10.148.70.128/27"
-  additional_tags   = {}
+  source            = "../aws-modules/aws-vpc"
+  vpc_id            = "10.0.0.0/16"
+  subnet_cidr       = "10.0.0.0/24"
+  availability_zone = "${var.region}b"
+  additional_tags = {
+    "Application" = "flaskapp"
+    "Name"        = "Flask-app-server"
+    "Type"        = "vpc"
+  }
 }
 
-# downloader-1
 module "server" {
   source               = "../aws-modules/aws-instance"
   ami                  = "ami-06acd7cbe65da0fde"
-  availability_zone    = "ap-southeast-1b"
+  availability_zone    = "${var.region}b"
   instance_type        = "c4.xlarge"
   key_name             = "karthi"
-  subnet_id            = module.server.subnet_id
-  vpc_id               = data.aws_vpc.vpc_id.id
+  subnet_id            = module.vpc.subnet_id
+  vpc_id               = module.vpc.vpc_id
   security_group_name  = "flask-app-server-security-group"
-
+  user_data            = locals.user_data
   additional_tags = {
     "Application" = "flaskapp"
     "Name"        = "Flask-app-server"
