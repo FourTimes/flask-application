@@ -1,0 +1,25 @@
+---
+name: flask app build and deployment
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'infra-code/**'
+jobs:
+  dev:
+    name: Flask app deployment
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: ['infra-code']
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ matrix.folder }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: version
+        run: |
+          echo "terraform provison area"
