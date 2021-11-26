@@ -1,9 +1,9 @@
 ---
-name: machine learning model deployment
+name: flask api build and deployment
 on: [push]
 jobs:
   dev:
-    name: dev recommendation
+    name: flask api deployment
     runs-on: ubuntu-latest
     steps:
       - name: checkout
