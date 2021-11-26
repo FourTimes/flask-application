@@ -15,7 +15,7 @@ In this application developed by python flask framework.
 
 ```bash
 
-`flask-application`
+flask-application
 |-- app.py
 |-- requirments.txt
 |-- static
