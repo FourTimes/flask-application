@@ -11,7 +11,7 @@ jobs:
     name: terraform deployment
     runs-on: ubuntu-latest
     env:
-      bucket: terraform-backend-buckets-tfd
+      bucket: terraform-backend-buckets
     strategy:
       matrix:
         folder: ['infra-code']
