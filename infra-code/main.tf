@@ -1,6 +1,6 @@
 module "vpc" {
   source            = "./aws-modules/aws-vpc"
-  vpc_id            = "10.0.0.0/16"
+  vpc_cidr          = "10.0.0.0/16"
   subnet_cidr       = "10.0.0.0/24"
   availability_zone = "${var.region}b"
   additional_tags = {
