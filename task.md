@@ -1,6 +1,8 @@
 Task:
 
-    Utilize IaC solutions like ansible and terraform to fully automate the deployment process of a small application described below. Please make sure that the solution you deliver is reusable: it is important that the code should be easily modified by your colleagues to deploy other modules or components.
+    Utilize IaC solutions like ansible and terraform to fully automate the deployment process of a small application described below.
+    Please make sure that the solution you deliver is reusable: 
+       it is important that the code should be easily modified by your colleagues to deploy other modules or components.
  
 Python application:
 
