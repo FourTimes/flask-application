@@ -43,12 +43,11 @@ jobs:
       - name: docker logout
         run: |
           docker logout
-      - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
         with:
-          playbook: deploy.yml
-          directory: apps
-          key: ${{secrets.SSH_KEY}}
-          inventory: |
-            [all]
-            18.234.81.146
+          host: "18.234.81.146"
+          username: "ubuntu"
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: bash docker.sh
