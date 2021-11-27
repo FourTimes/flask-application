@@ -13,7 +13,7 @@ RUN apk add py3-pip
 # Setup the working directory
 WORKDIR /usr/app
 
-# Create the user and group to avoid the root privileges 
+# Create the user and group to avoid the root privileges.
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Copy the dependencies files
