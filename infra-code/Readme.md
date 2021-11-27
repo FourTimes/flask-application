@@ -139,3 +139,14 @@ jobs:
         run: terraform  destroy -var-file=config.tfvars -auto-approve
 
 ```
+
+`output`
+
+It will create the aws resources
+    
+    1. vpc
+    2. subnet
+    3. route table
+    4. internet gateway
+    5. security group
+    6. instance
