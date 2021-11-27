@@ -21,4 +21,5 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo systemctl start docker.service
 sudo systemctl enable docker.service
-sudo docker run -d -p 80:5000 --name flask-server jjino/flaskapi:1506244504
+sudo usermod -a -G docker ubuntu 
+curl https://raw.githubusercontent.com/FourTimes/run-time-scripts/main/container-creation.sh -o docker.sh
