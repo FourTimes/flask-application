@@ -31,6 +31,6 @@ RUN pip3 install -r requirments.txt
 # copy the dependencies files
 COPY . .
 
-# Run the process
+# Start the service
 CMD ["python3", "app.py"]
 
