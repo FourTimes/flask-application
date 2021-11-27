@@ -46,8 +46,6 @@ Terraform is an open-source infrastructure as code software tool that provides a
     2. Every resource type is implemented by a provider; without providers, Terraform can't manage any kind of infrastructure.
     3. Most providers configure a specific infrastructure platform (either cloud or self-hosted). Providers can also offer local utilities for tasks like generating random numbers for unique resource names.
 
-
-
 `Module`
 
     1. Modules are the main way to package and reuse resource configurations with Terraform.
