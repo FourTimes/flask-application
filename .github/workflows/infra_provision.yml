@@ -11,7 +11,8 @@ jobs:
     name: terraform deployment
     runs-on: ubuntu-latest
     env:
-      bucket: terraform-backend-buckets
+      bucket: "terraform-backend-buckets"
+      bucker_region: "eu-central-1"
     strategy:
       matrix:
         folder: ['infra-code']
@@ -37,7 +38,7 @@ jobs:
           terraform init \
             -backend-config="bucket=${{ env.bucket }}" \
             -backend-config="key=dev/tfstate.tfstate" \
-            -backend-config="region=eu-central-1" \
+            -backend-config="region=${{ env.bucker_region }}" \ 
             -backend=true
       - name: validate
         run: terraform validate
