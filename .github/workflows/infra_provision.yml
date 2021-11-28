@@ -35,11 +35,7 @@ jobs:
           aws-region: us-east-1
       - name: initial
         run: |
-          terraform init \
-            -backend-config="bucket=${{ env.bucket }}" \
-            -backend-config="key=dev/tfstate.tfstate" \
-            -backend-config="region=eu-central-1" \ 
-            -backend=true
+          terraform init -backend-config="bucket=${{ env.bucket }}" -backend-config="key=dev/tfstate.tfstate" -backend-config="region=${{ env.bucket_region }}" -backend=true
       - name: validate
         run: terraform validate
       - name: plan
