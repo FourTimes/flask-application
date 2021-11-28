@@ -40,7 +40,7 @@ jobs:
           terraform init \
           -backend-config="bucket=${{ env.bucket }}" \
           -backend-config="key=dev/tfstate.tfstate" \
-          -backend-config="region=${{ env.bucket_region }}" \
+          -backend-config="region=${{ env.bucker_region }}" \
           -backend=true
       - name: validate
         run: terraform validate
