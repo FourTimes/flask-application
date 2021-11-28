@@ -22,8 +22,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: build ID
-        run: echo "${{ env.buildId }}"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -32,24 +30,18 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
-      # - name: docker login
-      #   run: |
-      #     echo ${{ secrets.DOCKER_TOKEN }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
       - name: docker build 
         run: |
           docker build -t  ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID .
+          docker build -t  ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_ID ./reverse-proxy
       - name: show the docker image name
         run: |
           echo ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
+          echo ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_ID
       - name: docker push 
         run: |
           docker push ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
-      - name: docker build reverse-proxy
-        run: |
-          docker build -t  ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_ID ./reverse-proxy
-      - name: docker push reverse-proxy
-        run: |
-          docker push ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_ID
+          docker push ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_I
       - name: docker logout
         run: |
           docker logout
