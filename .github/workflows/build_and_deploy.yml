@@ -41,7 +41,7 @@ jobs:
       - name: docker push 
         run: |
           docker push ${{ secrets.DOCKER_USER }}/flaskapi:$GITHUB_RUN_ID
-          docker push ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_I
+          docker push ${{ secrets.DOCKER_USER }}/reverse-proxy:$GITHUB_RUN_ID
       - name: docker logout
         run: |
           docker logout
