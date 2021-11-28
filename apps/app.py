@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import requests
 
 app = Flask(__name__)
+
 api="https://api.chucknorris.io/jokes/random"
 
 @app.route('/')
