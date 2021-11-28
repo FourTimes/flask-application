@@ -1,3 +1,4 @@
 FROM nginx:alpine
-RUN apk update && apk add bash
+RUN apk update 
+RUN apk add bash
 COPY nginx.conf /etc/nginx/nginx.conf
