@@ -2,7 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# data read
 data "terraform_remote_state" "vpc" {
     backend = "s3"
     config {
